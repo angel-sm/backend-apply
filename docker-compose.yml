@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: backend-apply
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - ENV=${ENV:-production}
+      - PORT=3000
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
