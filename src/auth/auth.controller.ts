@@ -1,9 +1,10 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { ApiSignin } from '../../swagger/auth/auth.controller.swagger';
+
 import { AuthService } from './auth.service';
 import { SigninDto } from './signin.dto';
 
+import { ApiSignin } from '@swagger/auth/auth.controller.swagger';
 @ApiTags('Auth')
 @Controller({ path: 'auth', version: '1' })
 export class AuthController {
