@@ -20,7 +20,9 @@
     "paths": {
       "@healt/*": ["src/healt/*"],
       "@auth/*": ["src/auth/*"],
-      "@swagger/*": ["swagger/*"]
+      "@products/*": ["src/products/*"],
+      "@shared/*": ["src/shared/*"],
+      "@swagger/*": ["swagger/*"],
     }
   }
 }
