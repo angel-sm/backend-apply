@@ -6,15 +6,14 @@ import { SearchProductsDto } from '@products/application/dtos/search-products.dt
 import { SearchProductsUseCase } from '@products/application/usecases/search-products.usecase';
 import { ProductFilters } from '@products/utils/product-filters.util';
 
-// import { ApiSearchProducts } from '@swagger/products/controllers';
-
+import { ApiSearchProducts } from '@swagger/products/search-products.controller.swagger';
 @ApiTags('Products')
 @Controller({ path: 'products', version: '1' })
 export class SearchProductsController {
   constructor(private readonly searchProductsUseCase: SearchProductsUseCase) {}
 
   @Get()
-  // @ApiSearchProducts()
+  @ApiSearchProducts()
   async searchProducts(@Query() filters: SearchProductsDto) {
     const productFilters: ProductFilters = {
       ...filters,

@@ -14,7 +14,7 @@ export class ScheduleStoreProductsUseCase {
     private readonly productsRepository: ProductRepository,
   ) {}
 
-  @Cron(CronExpression.EVERY_MINUTE)
+  @Cron(CronExpression.EVERY_HOUR)
   async run() {
     try {
       const contentfulResponse =
