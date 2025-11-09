@@ -6,6 +6,7 @@ import { HealtModule } from '@healt/healt.module';
 import { AuthModule } from '@auth/auth.module';
 import { ProductsModule } from '@products/product.module';
 import { DatabaseModule } from '@shared/infrastructure/database/database.module';
+import { ReportsModule } from '@reports/reports.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { DatabaseModule } from '@shared/infrastructure/database/database.module'
     HealtModule,
     AuthModule,
     ProductsModule,
+    ReportsModule,
     ScheduleModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,

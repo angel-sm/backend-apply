@@ -4,7 +4,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { SigninDto } from './signin.dto';
 
-import { ApiSignin } from '@swagger/auth/auth.controller.swagger';
+import { ApiSignin } from '@swagger/v1/auth/auth.controller.swagger';
 @ApiTags('Auth')
 @Controller({ path: 'auth', version: '1' })
 export class AuthController {

@@ -17,8 +17,7 @@ export class ScheduleStoreProductsUseCase {
   @Cron(CronExpression.EVERY_HOUR)
   async run() {
     try {
-      const contentfulResponse =
-        await this.contentfulRepository.fetchProducts();
+      const contentfulResponse = await this.contentfulRepository.fetchProducts();
 
       const products = contentfulResponse.map((data) =>
         Product.create({

@@ -2,20 +2,11 @@ import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
-import {
-  ProductDocument,
-  ProductSchema,
-} from '@shared/infrastructure/database/mongo/schemas';
+import { ProductDocument, ProductSchema } from '@shared/infrastructure/database/mongo/schemas';
 import { PaginatedResult, Pagination } from '@shared/utils/pagination.util';
-import {
-  PrimitiveProduct,
-  Product,
-} from '@products/domain/entities/product.entity';
+import { PrimitiveProduct, Product } from '@products/domain/entities/product.entity';
 import { ProductRepository } from '@products/domain/repositories/product.repository';
-import {
-  ProductFilters,
-  ProductFiltersUtil,
-} from '@products/utils/product-filters.util';
+import { ProductFilters, ProductFiltersUtil } from '@products/utils/product-filters.util';
 
 @Injectable()
 export class MongoProductsRepository extends ProductRepository {
@@ -26,10 +17,7 @@ export class MongoProductsRepository extends ProductRepository {
     super();
   }
 
-  async searchProducts(
-    filters: ProductFilters,
-    pagination: Pagination,
-  ): Promise<PaginatedResult<PrimitiveProduct>> {
+  async searchProducts(filters: ProductFilters, pagination: Pagination): Promise<PaginatedResult<PrimitiveProduct>> {
     const page = pagination.page;
     const limit = pagination.limit;
     const skip = (page - 1) * limit;
@@ -69,9 +57,7 @@ export class MongoProductsRepository extends ProductRepository {
 
   async saveProducts(products: Product[]): Promise<void> {
     try {
-      const productToInsert: PrimitiveProduct[] = products.map(
-        (product) => product.toPrimitive,
-      );
+      const productToInsert: PrimitiveProduct[] = products.map((product) => product.toPrimitive);
       await this.productModel.insertMany(productToInsert);
     } catch (error) {
       console.error('Error saving products:', error);

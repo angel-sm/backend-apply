@@ -6,7 +6,7 @@ import { SearchProductsDto } from '@products/application/dtos/search-products.dt
 import { SearchProductsUseCase } from '@products/application/usecases/search-products.usecase';
 import { ProductFilters } from '@products/utils/product-filters.util';
 
-import { ApiSearchProducts } from '@swagger/products/search-products.controller.swagger';
+import { ApiSearchProducts } from '@swagger/v1/products/search-products.controller.swagger';
 @ApiTags('Products')
 @Controller({ path: 'products', version: '1' })
 export class SearchProductsController {
@@ -26,10 +26,7 @@ export class SearchProductsController {
       limit: filters.limit || 5,
     };
 
-    const result = await this.searchProductsUseCase.run(
-      productFilters,
-      pagination,
-    );
+    const result = await this.searchProductsUseCase.run(productFilters, pagination);
 
     return {
       success: true,

@@ -21,6 +21,7 @@
       "@healt/*": ["src/healt/*"],
       "@auth/*": ["src/auth/*"],
       "@products/*": ["src/products/*"],
+      "@reports/*": ["src/reports/*"],
       "@shared/*": ["src/shared/*"],
       "@swagger/*": ["swagger/*"],
     }

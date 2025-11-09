@@ -5,7 +5,7 @@ import { AuthGuard } from '@shared/infrastructure/guards/auth.guard';
 import { DeleteProductDto } from '@products/application/dtos/delete-products.dto';
 import { DeleteProductsUseCase } from '@products/application/usecases/delete-product.usecase';
 
-import { ApiDeleteProduct } from '@swagger/products/delete-product.controller.swagger';
+import { ApiDeleteProduct } from '@swagger/v1/products/delete-product.controller.swagger';
 @ApiTags('Products')
 @UseGuards(AuthGuard)
 @Controller({ path: 'products', version: '1' })

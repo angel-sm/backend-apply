@@ -9,14 +9,8 @@ import { PaginatedResult, Pagination } from '@shared/utils/pagination.util';
 export class SearchProductsUseCase {
   constructor(private readonly productRepository: ProductRepository) {}
 
-  async run(
-    filters: ProductFilters,
-    pagination: Pagination,
-  ): Promise<PaginatedResult<PrimitiveProduct>> {
-    const result = await this.productRepository.searchProducts(
-      filters,
-      pagination,
-    );
+  async run(filters: ProductFilters, pagination: Pagination): Promise<PaginatedResult<PrimitiveProduct>> {
+    const result = await this.productRepository.searchProducts(filters, pagination);
     return result;
   }
 }

@@ -1,8 +1,5 @@
 import { ProductFilters } from '@products/utils/product-filters.util';
-import {
-  PrimitiveProduct,
-  Product,
-} from '@products/domain/entities/product.entity';
+import { PrimitiveProduct, Product } from '@products/domain/entities/product.entity';
 import { PaginatedResult, Pagination } from '@shared/utils/pagination.util';
 
 export abstract class ProductRepository {
@@ -13,10 +10,7 @@ export abstract class ProductRepository {
    * @param pagination - Pagination parameters (page number and items per page)
    * @returns Promise resolving to paginated result containing products and pagination metadata
    */
-  abstract searchProducts(
-    filters: ProductFilters,
-    pagination: Pagination,
-  ): Promise<PaginatedResult<PrimitiveProduct>>;
+  abstract searchProducts(filters: ProductFilters, pagination: Pagination): Promise<PaginatedResult<PrimitiveProduct>>;
 
   /**
    * Persist multiple products to the database.
