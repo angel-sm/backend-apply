@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: backend-apply
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - ENV=${ENV:-production}
+      - PORT=3000
+      - CONTENTFUL_SPACE_ID=${CONTENTFUL_SPACE_ID}
+      - CONTENTFUL_ACCESS_TOKEN=${CONTENTFUL_ACCESS_TOKEN}
+      - CONTENTFUL_ENVIRONMENT=${CONTENTFUL_ENVIRONMENT}
+      - CONTENTFUL_CONTENT_TYPE=${CONTENTFUL_CONTENT_TYPE}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-1h}
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - backend-network
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: backend-apply-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

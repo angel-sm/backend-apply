@@ -16,6 +16,14 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@healt/*": ["src/healt/*"],
+      "@auth/*": ["src/auth/*"],
+      "@products/*": ["src/products/*"],
+      "@reports/*": ["src/reports/*"],
+      "@shared/*": ["src/shared/*"],
+      "@swagger/*": ["swagger/*"],
+    }
   }
 }
