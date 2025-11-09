@@ -46,8 +46,7 @@ export class ProductSchema {
   updatedAt?: Date;
 }
 
-export const ProductMongooseSchema =
-  SchemaFactory.createForClass(ProductSchema);
+export const ProductMongooseSchema = SchemaFactory.createForClass(ProductSchema);
 
 ProductMongooseSchema.index({ brand: 1, category: 1, name: 1, color: 1 });
 ProductMongooseSchema.index({ deletedAt: 1 });

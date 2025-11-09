@@ -11,7 +11,16 @@ async function bootstrap() {
     defaultVersion: '1',
   });
 
-  const config = new DocumentBuilder().setTitle('Backend Apply API').setDescription('API documentation for Backend Apply application').setVersion('1.0').addTag('Healt', 'Healt check endpoints').build();
+  const config = new DocumentBuilder()
+    .setTitle('Backend Apply API')
+    .setDescription('API documentation for Backend Apply application')
+    .setVersion('1.0')
+    .addTag('Healt', 'Healt check endpoints')
+    .addTag('Auth', 'Authentication endpoints')
+    .addTag('Products', 'Products endpoints')
+    .addTag('Reports', 'Reports endpoints')
+    .addBearerAuth()
+    .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
