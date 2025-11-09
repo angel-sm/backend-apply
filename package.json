@@ -69,6 +69,9 @@
       "ts"
     ],
     "rootDir": "./",
+    "roots": [
+      "<rootDir>/test"
+    ],
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -77,13 +80,22 @@
       "node_modules/(?!uuid)"
     ],
     "collectCoverageFrom": [
-      "**/*.(t|j)s"
+      "src/**/*.{ts,js}",
+      "!src/**/*.spec.ts",
+      "!src/**/*.interface.ts",
+      "!src/**/index.ts",
+      "!src/main.ts"
     ],
-    "coverageDirectory": "../coverage",
+    "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/$1",
-      "^@auth/(.*)$": "<rootDir>/src/auth/$1"
+      "^@auth/(.*)$": "<rootDir>/src/auth/$1",
+      "^@products/(.*)$": "<rootDir>/src/products/$1",
+      "^@reports/(.*)$": "<rootDir>/src/reports/$1",
+      "^@shared/(.*)$": "<rootDir>/src/shared/$1",
+      "^@healt/(.*)$": "<rootDir>/src/healt/$1",
+      "^@swagger/(.*)$": "<rootDir>/swagger/$1"
     }
   }
 }
